@@ -1,30 +1,36 @@
 import turtle as t
 
-def draw_flower():
-    #changes pen color
-    t.pencolor("green")
+def draw_flower(x,y,color,pen_size, num_petals,petal_length, stem_length):
 
-    #changes pen thickness 
+    t.penup()
+    t.setheading(0)
+    t.goto(x,y)
+    t.pendown()
+
+    #changes pen color/thickness
+    t.pencolor("green") 
     t.pensize(20)
 
     t.right(90)
-    t.forward(150)
-    t.backward(150)
+    t.forward(stem_length)
+    t.backward(stem_length)
 
     #decide the values for num_petals and num_degrees
-    t.pencolor("purple")
+    t.pencolor(color)
     t.pensize(30)
 
-    num_petals = 8
-    num_degrees = int(360/8)
+    # num_petals = num_petals
+    num_degrees = int(360/num_petals)
 
     #petal movement based on number of degrees
     for i in range(num_petals):
-        t.forward(50)
-        t.backward(50)
+        t.forward(petal_length)
+        t.backward(petal_length)
         t.right(num_degrees)
 
     t.pencolor("orange")
     t.dot(30)
 
-draw_flower()
+draw_flower(60,60)
+draw_flower(30,30)
+draw_flower(0,0)
